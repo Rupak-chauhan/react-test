@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ConsumerComponenet from "./components/ConsumerComponent";
+// import React, { createContext } from "react";
+import DemoComponent from "./components/DemoComponent";
+import TestComponent from "./components/TestComponent";
+import { demoContext } from "./contexts/DemoContext";
+import ErrorBoundary from "./Errors/ErrorBoundary";
 
-function App() {
+// const demoContext = createContext("Demo value");
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <demoContext.Provider value={{ suth: "logedIn", permissions: "null" }}>
+        {/* <DemoComponent />
+        <ConsumerComponenet /> */}
+        <ErrorBoundary>
+          <TestComponent />
+        </ErrorBoundary>
+      </demoContext.Provider>
     </div>
   );
-}
+};
 
 export default App;
